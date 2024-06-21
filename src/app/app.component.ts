@@ -11,4 +11,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  // TODO: Create a service to manage the tasks.
+  // TODO: Make the app a PWA.
 }
