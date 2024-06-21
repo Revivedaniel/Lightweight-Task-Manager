@@ -1,0 +1,14 @@
+<mat-toolbar>
+    <span *ngIf="includeJumbotron">{{jumbotronText}}</span>
+    <span class="spacer"></span>
+    <div *ngFor="let button of buttons">
+        <button *ngIf="button.functionalityType === 'Button'">
+            <mat-icon *ngIf="button.contentType === 'Icon'">{{button.content}}</mat-icon>
+            <span *ngIf="button.contentType === 'Text'">{{button.content}}</span>
+        </button>
+        <a *ngIf="button.functionalityType === 'Link'" [routerLink]="button.link">
+            <mat-icon *ngIf="button.contentType === 'Icon'">{{button.content}}</mat-icon>
+            <span *ngIf="button.contentType === 'Text'">{{button.content}}</span>
+        </a>
+    </div>
+</mat-toolbar>
