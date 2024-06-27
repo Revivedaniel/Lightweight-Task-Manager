@@ -17,28 +17,7 @@ export class TaskService {
     return this.db.tasks.add(task);
   };
 
-  getTasks(): Observable<Task[]> {
-    return new Observable<Task[]>(observer => {
-      setTimeout(() => {
-        observer.next([
-          {
-            title: 'Task 1',
-            description: 'This is the first task',
-            dueDate: new Date()
-          },
-          {
-            title: 'Task 2',
-            description: 'This is the second task',
-            dueDate: new Date()
-          },
-          {
-            title: 'Task 3',
-            description: 'This is the third task',
-            dueDate: new Date()
-          }
-        ]);
-        observer.complete();
-      }, 1000);
-    });
+  getTasks(): PromiseExtended<Task[]> {
+    return this.db.tasks.toArray();
   }
 }

@@ -9,7 +9,7 @@ import { TaskService } from '../services/task.service';
   standalone: true,
   imports: [TaskComponent, CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
   tasks: Task[] = [];
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
-    this.taskService.getTasks().subscribe(tasks => {
+    this.taskService.getTasks().then((tasks) => {
       this.tasks = tasks;
     });
   }
