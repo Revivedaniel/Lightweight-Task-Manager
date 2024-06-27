@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatChipsModule} from '@angular/material/chips';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-task',
@@ -17,6 +18,9 @@ export class TaskComponent {
   // TODO: Add a button to mark the task as complete
   // TODO: Add a button to cancel the task aka remove the due date
   // TODO: Add a button to resume the task aka add a due date to the task
-  @Input() taskTitle: string = "Title";
-  @Input() taskDescription: string = "Long Description: asdjhfsahjf ioashiufsadhfuihauhuihas dfiuashfiuh asdiufh asui fiuasiufhsahfiua";
+  @Input() task: Task = {
+    title: '',
+    description: '',
+    dueDate: new Date()
+  };
 }

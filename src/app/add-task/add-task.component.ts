@@ -4,6 +4,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { Task } from '../models/task.model';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -21,7 +23,19 @@ export class AddTaskComponent {
     dueDate: new FormControl(''),
   });
 
+  constructor(private taskService: TaskService) {}
+
   onSubmit(): void {
     console.log('Form submitted', this.taskForm.value);
+    if (this.taskForm.valid) {
+      const newTask: Task = {
+        title: this.taskForm.value.title!,
+        description: this.taskForm.value.description!,
+        dueDate: new Date(this.taskForm.value.dueDate!),
+      }
+      this.taskService.addTask(newTask).then(id => {
+        console.log('Task added with id', id);
+      })
+    }
   }
 }

@@ -11,8 +11,6 @@ import { DynamicHeaderComponent, HeaderButton } from './shared/dynamic-header/dy
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  // TODO: Create a service to manage the tasks.
-  // TODO: Make the app a PWA.
   buttons: HeaderButton[] = [
     {
       functionalityType: 'Link',

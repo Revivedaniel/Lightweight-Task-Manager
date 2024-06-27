@@ -1,3 +1,6 @@
 <!-- Tasks -->
  <!-- TODO: Render these dynamically for all the tasks. -->
 <app-task></app-task>
+<div *ngFor="let task of tasks">
+    <app-task [task]="task"></app-task>
+</div>

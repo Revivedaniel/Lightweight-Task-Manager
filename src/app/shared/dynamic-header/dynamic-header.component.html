@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <span *ngIf="includeJumbotron">{{jumbotronText}} Daniel</span>
+    <span *ngIf="includeJumbotron">{{jumbotronText}}</span>
     <span class="spacer"></span>
     <div *ngFor="let button of buttons">
         <button *ngIf="button.functionalityType === 'Button'">
