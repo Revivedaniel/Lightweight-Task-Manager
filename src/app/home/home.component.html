@@ -1,3 +1,6 @@
 <!-- Tasks -->
- <!-- TODO: Render these dynamically for all the tasks. -->
-<app-task></app-task>
+<div *ngFor="let task of orderedTasks()">
+    <!-- TODO: Render tasks descending based on due date. -->
+     <!-- Tasks without a due date should be placed at the bottom. -->
+    <app-task [task]="task"></app-task>
+</div>
