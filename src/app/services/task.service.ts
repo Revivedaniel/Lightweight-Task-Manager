@@ -13,7 +13,6 @@ export class TaskService {
    }
 
   addTask(task: Task): PromiseExtended<number> {
-    // TODO: Implement Dexie.js to save the task to IndexedDB
     return this.db.tasks.add(task);
   };
 

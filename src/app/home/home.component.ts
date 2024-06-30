@@ -21,4 +21,16 @@ export class HomeComponent implements OnInit {
       this.tasks = tasks;
     });
   }
+
+  orderedTasks(): Task[] {
+    return this.tasks.sort((a, b) => {
+      if (a.dueDate === null) {
+        return 1;
+      }
+      if (b.dueDate === null) {
+        return -1;
+      }
+      return a.dueDate.getTime() - b.dueDate.getTime();
+    });
+  }
 }

@@ -3,11 +3,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatChipsModule} from '@angular/material/chips';
 import { Task } from '../../models/task.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [MatCardModule, MatChipsModule, MatIconModule],
+  imports: [MatCardModule, MatChipsModule, MatIconModule, CommonModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.scss'
 })
