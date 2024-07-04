@@ -46,8 +46,8 @@ export class AppComponent implements OnInit {
     },
     {
       functionalityType: 'Link',
-      contentType: 'Text',
-      content: 'Home',
+      contentType: 'Icon',
+      content: 'home',
       link: '/home',
     },
     {
