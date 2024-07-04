@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TaskModel, TaskResponse } from '../models/task.model';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AppDB } from '../db';
 import { DexieEvent, PromiseExtended } from 'dexie';
 
@@ -8,7 +8,7 @@ import { DexieEvent, PromiseExtended } from 'dexie';
   providedIn: 'root',
 })
 export class TaskService {
-
+  tasksChanged: Subject<boolean> = new Subject<boolean>();
   constructor(private db: AppDB) {
    }
 
@@ -24,14 +24,20 @@ export class TaskService {
   }
 
   deleteTask(id: number): PromiseExtended<void> {
-    return this.db.tasks.delete(id);
+    const response = this.db.tasks.delete(id);
+    this.tasksChanged.next(true);
+    return response;
   }
 
   editTask(task: TaskResponse): PromiseExtended<number> {
-    return this.db.tasks.update(task.id, task);
+    const response = this.db.tasks.update(task.id, task);
+    this.tasksChanged.next(true);
+    return response;
   }
 
   cancelTask(id: number): PromiseExtended<number> {
-    return this.db.tasks.update(id, { status: 'canceled', dueDate: null });
+    const response = this.db.tasks.update(id, { status: 'canceled', dueDate: null });
+    this.tasksChanged.next(true);
+    return response;
   }
 }

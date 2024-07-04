@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TaskComponent } from '../components/task/task.component';
 import { CommonModule } from '@angular/common';
 import { TaskModel, TaskResponse } from '../models/task.model';
@@ -12,7 +12,7 @@ import { Subscription } from 'dexie';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   tasks: TaskResponse[] = [];
   reloadSubscription!: Subscription;
 
@@ -21,7 +21,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.taskService.getTasks().then((tasks) => {
       this.tasks = tasks;
-      // TODO: When a DB change occurs, update the tasks
+      this.reloadSubscription = this.taskService.tasksChanged.subscribe(() => {
+        this.taskService.getTasks().then((tasks) => {
+          this.tasks = tasks;
+        });
+      });
     });
   }
 
@@ -35,5 +39,9 @@ export class HomeComponent implements OnInit {
       }
       return a.dueDate.getTime() - b.dueDate.getTime();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.reloadSubscription.unsubscribe();
   }
 }

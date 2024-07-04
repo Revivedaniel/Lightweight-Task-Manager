@@ -1,8 +1,8 @@
 import { Component, Input, signal } from '@angular/core';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { TaskResponse } from '../../models/task.model';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../../services/task.service';
@@ -11,9 +11,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [MatCardModule, MatChipsModule, MatIconModule, CommonModule, MatExpansionModule],
+  imports: [
+    MatCardModule,
+    MatChipsModule,
+    MatIconModule,
+    CommonModule,
+    MatExpansionModule,
+  ],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.scss'
+  styleUrl: './task.component.scss',
 })
 export class TaskComponent {
   // TODO: Add a button to edit the task
@@ -24,16 +30,14 @@ export class TaskComponent {
     title: '',
     description: '',
     dueDate: new Date(),
-    status: 'active'
+    status: 'active',
   };
   readonly panelOpenState = signal(false);
 
   constructor(private taskService: TaskService, private router: Router) {}
 
   deleteTask(id: number) {
-    this.taskService.deleteTask(id);
-    // Reload the tasks
-    
+    this.taskService.deleteTask(id)
   }
 
   editTask(id: number) {
@@ -44,8 +48,7 @@ export class TaskComponent {
   markTaskAsComplete() {}
 
   cancelTask(id: number) {
-    this.taskService.cancelTask(id);
-    // Reload the tasks
+    this.taskService.cancelTask(id)
   }
 
   resumeTask() {}
