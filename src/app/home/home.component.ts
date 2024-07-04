@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TaskComponent } from '../components/task/task.component';
 import { CommonModule } from '@angular/common';
-import { Task } from '../models/task.model';
+import { TaskModel, TaskResponse } from '../models/task.model';
 import { TaskService } from '../services/task.service';
+import { Subscription } from 'dexie';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +12,24 @@ import { TaskService } from '../services/task.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
-  tasks: Task[] = [];
+export class HomeComponent implements OnInit, OnDestroy {
+  tasks: TaskResponse[] = [];
+  reloadSubscription!: Subscription;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
     this.taskService.getTasks().then((tasks) => {
       this.tasks = tasks;
+      this.reloadSubscription = this.taskService.tasksChanged.subscribe(() => {
+        this.taskService.getTasks().then((tasks) => {
+          this.tasks = tasks;
+        });
+      });
     });
   }
 
-  orderedTasks(): Task[] {
+  orderedTasks(): TaskResponse[] {
     return this.tasks.sort((a, b) => {
       if (a.dueDate === null) {
         return 1;
@@ -32,5 +39,9 @@ export class HomeComponent implements OnInit {
       }
       return a.dueDate.getTime() - b.dueDate.getTime();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.reloadSubscription.unsubscribe();
   }
 }

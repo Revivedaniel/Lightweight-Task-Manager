@@ -29,3 +29,18 @@
     font-size: 14px;
     color: gray;
 }
+
+.actionRow mat-action-row {
+    justify-content: center;
+}
+
+.actionRow mat-expansion-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.actionRow mat-icon {
+    cursor: pointer;
+}
