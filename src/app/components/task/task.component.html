@@ -24,17 +24,17 @@
           <button mat-icon-button>
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="deleteTask(task.id)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button>
             <mat-icon>cancel</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon>check_circle</mat-icon>
+            <mat-icon>play_circle</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon>play_circle</mat-icon>
+            <mat-icon>check_circle</mat-icon>
           </button>
         </mat-expansion-panel-header>
       </mat-action-row>

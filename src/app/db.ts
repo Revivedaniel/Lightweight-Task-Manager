@@ -1,9 +1,9 @@
 // db.ts
 import Dexie, { Table } from 'dexie';
-import { Task } from './models/task.model';
+import { TaskModel, TaskResponse } from './models/task.model';
 
 export class AppDB extends Dexie {
-  tasks!: Table<Task, number>;
+  tasks!: Table<TaskResponse, number>;
 
   constructor() {
     super('ngdexieliveQuery');
@@ -16,16 +16,19 @@ export class AppDB extends Dexie {
   async populate() {
     await db.tasks.bulkAdd([
       {
+        id: 1,
         title: 'Task 1',
         description: 'This is the first task',
         dueDate: new Date(),
       },
       {
+        id: 2,
         title: 'Task 2',
         description: 'This is the second task',
         dueDate: new Date(),
       },
       {
+        id: 3,
         title: 'Task 3',
         description: 'This is the third task',
         dueDate: new Date(),

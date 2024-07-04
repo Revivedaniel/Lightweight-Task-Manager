@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../models/task.model';
+import { TaskModel, TaskResponse } from '../models/task.model';
 import { Observable } from 'rxjs';
 import { AppDB } from '../db';
-import { PromiseExtended } from 'dexie';
+import { DexieEvent, PromiseExtended } from 'dexie';
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +12,19 @@ export class TaskService {
   constructor(private db: AppDB) {
    }
 
-  addTask(task: Task): PromiseExtended<number> {
-    return this.db.tasks.add(task);
+  addTask(task: TaskModel): PromiseExtended<number> {
+    return this.db.tasks.add(task as TaskResponse);
   };
 
-  getTasks(): PromiseExtended<Task[]> {
+  getTasks(): PromiseExtended<TaskResponse[]> {
     return this.db.tasks.toArray();
+  }
+
+  deleteTask(id: number): PromiseExtended<void> {
+    return this.db.tasks.delete(id);
+  }
+
+  editTask(task: TaskResponse): PromiseExtended<number> {
+    return this.db.tasks.update(task.id, task);
   }
 }

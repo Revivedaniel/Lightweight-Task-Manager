@@ -4,7 +4,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { Task } from '../models/task.model';
+import { TaskModel } from '../models/task.model';
 import { TaskService } from '../services/task.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class AddTaskComponent {
   onSubmit(): void {
     console.log('Form submitted', this.taskForm.value);
     if (this.taskForm.valid) {
-      const newTask: Task = {
+      const newTask: TaskModel = {
         title: this.taskForm.value.title!,
         description: this.taskForm.value.description!,
         dueDate: new Date(this.taskForm.value.dueDate!),
