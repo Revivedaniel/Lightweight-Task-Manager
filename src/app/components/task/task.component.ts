@@ -31,7 +31,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
   styleUrl: './task.component.scss',
 })
 export class TaskComponent {
-  // TODO: Add a button to resume the task aka add a due date to the task
   @Input() task: TaskResponse = {
     id: 0,
     title: '',

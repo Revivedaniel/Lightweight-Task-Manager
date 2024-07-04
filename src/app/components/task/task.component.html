@@ -27,13 +27,13 @@
           <button mat-icon-button (click)="deleteTask(task.id)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-icon-button (click)="cancelTask(task.id)">
+          <button mat-icon-button (click)="cancelTask(task.id)" *ngIf="task.status === 'active'">
             <mat-icon>cancel</mat-icon>
           </button>
-          <button mat-icon-button (click)="openDialog()">
+          <button mat-icon-button (click)="openDialog()" *ngIf="task.status !== 'active'">
             <mat-icon>play_circle</mat-icon>
           </button>
-          <button mat-icon-button (click)="markTaskAsComplete(task.id)">
+          <button mat-icon-button (click)="markTaskAsComplete(task.id)" *ngIf="task.status !== 'completed'">
             <mat-icon>check_circle</mat-icon>
           </button>
         </mat-expansion-panel-header>
