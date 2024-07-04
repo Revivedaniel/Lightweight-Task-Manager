@@ -1,14 +1,43 @@
 <mat-card class="example-card" appearance="outlined">
-    <mat-card-header class="custom-card-header">
-        <div class="header-content">
-          <mat-card-title>{{task.title}}</mat-card-title>
-          <mat-card-subtitle>{{task.dueDate | date: 'shortDate'}}</mat-card-subtitle>
-        </div>
-      </mat-card-header>
-    <mat-card-content class="content">
-      <p class="description">{{task.description}}</p>
-      <button mat-icon-button>
-        <mat-icon>arrow_downward</mat-icon>
-      </button>
-    </mat-card-content>
-  </mat-card>
+  <mat-card-header class="custom-card-header">
+    <div class="header-content">
+      <mat-card-title>{{task.title}}</mat-card-title>
+      <mat-card-subtitle>{{task.dueDate | date: 'shortDate'}}</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="content">
+    <!-- <p class="description">{{task.description}}</p> -->
+    <!-- <button mat-icon-button>
+      <mat-icon>arrow_downward</mat-icon>
+    </button> -->
+  </mat-card-content>
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+      <mat-expansion-panel-header *ngIf="!panelOpenState()">
+        <!-- TODO Render short description here -->
+        <mat-panel-title>{{task.description}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <!-- TODO: Render long description here -->
+      <p>I'm visible because I am open</p>
+      <mat-action-row class="actionRow">
+        <mat-expansion-panel-header>
+          <button mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>cancel</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>check_circle</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>play_circle</mat-icon>
+          </button>
+        </mat-expansion-panel-header>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-card>
