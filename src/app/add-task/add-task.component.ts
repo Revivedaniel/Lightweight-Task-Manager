@@ -12,6 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { TaskModel, TaskResponse } from '../models/task.model';
 import { TaskService } from '../services/task.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-add-task',
@@ -23,6 +24,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     MatFormFieldModule,
     MatDatepickerModule,
     ReactiveFormsModule,
+    MatCardModule
   ],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss',

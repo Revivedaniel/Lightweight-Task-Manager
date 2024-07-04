@@ -1,4 +1,6 @@
 .example-form {
+    display: flex;
+    flex-direction: column;
     min-width: 150px;
     max-width: 500px;
     width: 100%;
@@ -10,4 +12,21 @@
 
 td {
     padding-right: 8px;
+}
+
+#submitButton {
+    margin: 10px auto;
+    width: 50%;
+    height: 50px;
+}
+
+.example-card {
+    max-width: 425px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
