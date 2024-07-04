@@ -19,6 +19,9 @@ export class TaskService {
   getTasks(): PromiseExtended<TaskResponse[]> {
     return this.db.tasks.toArray();
   }
+  getTask(id: number): PromiseExtended<TaskResponse | undefined> {
+    return this.db.tasks.get(id);
+  }
 
   deleteTask(id: number): PromiseExtended<void> {
     return this.db.tasks.delete(id);

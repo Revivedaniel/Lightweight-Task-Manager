@@ -6,6 +6,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { TaskResponse } from '../../models/task.model';
 import { CommonModule } from '@angular/common';
 import { TaskService } from '../../services/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -17,7 +18,6 @@ import { TaskService } from '../../services/task.service';
 export class TaskComponent {
   // TODO: Add a button to edit the task
   // TODO: Add a button to mark the task as complete
-  // TODO: Add a button to cancel the task aka remove the due date
   // TODO: Add a button to resume the task aka add a due date to the task
   @Input() task: TaskResponse = {
     id: 0,
@@ -28,7 +28,7 @@ export class TaskComponent {
   };
   readonly panelOpenState = signal(false);
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private router: Router) {}
 
   deleteTask(id: number) {
     this.taskService.deleteTask(id);
@@ -36,7 +36,10 @@ export class TaskComponent {
     
   }
 
-  editTask() {}
+  editTask(id: number) {
+    // Navigate to the edit task page
+    this.router.navigate(['/edit', id]);
+  }
 
   markTaskAsComplete() {}
 

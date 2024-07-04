@@ -21,7 +21,7 @@
       <p>I'm visible because I am open</p>
       <mat-action-row class="actionRow">
         <mat-expansion-panel-header>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="editTask(task.id)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button (click)="deleteTask(task.id)">
