@@ -27,4 +27,8 @@ export class TaskService {
   editTask(task: TaskResponse): PromiseExtended<number> {
     return this.db.tasks.update(task.id, task);
   }
+
+  cancelTask(id: number): PromiseExtended<number> {
+    return this.db.tasks.update(id, { status: 'canceled', dueDate: null });
+  }
 }

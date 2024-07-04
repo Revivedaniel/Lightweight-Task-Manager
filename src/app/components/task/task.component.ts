@@ -15,7 +15,6 @@ import { TaskService } from '../../services/task.service';
   styleUrl: './task.component.scss'
 })
 export class TaskComponent {
-  // TODO: Add a button to delete the task
   // TODO: Add a button to edit the task
   // TODO: Add a button to mark the task as complete
   // TODO: Add a button to cancel the task aka remove the due date
@@ -24,7 +23,8 @@ export class TaskComponent {
     id: 0,
     title: '',
     description: '',
-    dueDate: new Date()
+    dueDate: new Date(),
+    status: 'active'
   };
   readonly panelOpenState = signal(false);
 
@@ -40,7 +40,10 @@ export class TaskComponent {
 
   markTaskAsComplete() {}
 
-  cancelTask() {}
+  cancelTask(id: number) {
+    this.taskService.cancelTask(id);
+    // Reload the tasks
+  }
 
   resumeTask() {}
 }
