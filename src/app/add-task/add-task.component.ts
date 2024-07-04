@@ -32,6 +32,7 @@ export class AddTaskComponent {
         title: this.taskForm.value.title!,
         description: this.taskForm.value.description!,
         dueDate: new Date(this.taskForm.value.dueDate!),
+        status: 'active',
       }
       this.taskService.addTask(newTask).then(id => {
         console.log('Task added with id', id);

@@ -20,18 +20,21 @@ export class AppDB extends Dexie {
         title: 'Task 1',
         description: 'This is the first task',
         dueDate: new Date(),
+        status: 'active',
       },
       {
         id: 2,
         title: 'Task 2',
         description: 'This is the second task',
         dueDate: new Date(),
+        status: 'active',
       },
       {
         id: 3,
         title: 'Task 3',
         description: 'This is the third task',
         dueDate: new Date(),
+        status: 'active',
       },
     ]);
   }
