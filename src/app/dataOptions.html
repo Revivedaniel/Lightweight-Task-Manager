@@ -4,6 +4,8 @@
             accept=".json" />
         <button mat-flat-button color="primary" (click)="jsonInput.click()">Choose JSON File (.json)</button>
     </mat-tab>
-    <mat-tab label="Download">Content 2</mat-tab>
+    <mat-tab label="Download">
+        <button mat-flat-button color="primary" (click)="downloadJson(); cancelButton.click()">Download JSON File (.json)</button>
+    </mat-tab>
 </mat-tab-group>
 <button #cancelButton (click)="confirmation()" [mat-dialog-close]="true">Cancel</button>

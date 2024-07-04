@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
   dialogChanges: Subject<boolean> = new Subject<boolean>();
-  constructor() { }
+  constructor() {}
 
   readJsonFile(file: File): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -28,5 +28,16 @@ export class DataService {
       fileReader.readAsText(file);
     });
   }
-  
+
+  downloadJson(data: any) {
+    const fileData =
+      'data:text/json;charset=utf-8,' +
+      encodeURIComponent(JSON.stringify(data));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute('href', fileData);
+    downloadAnchorNode.setAttribute('download', 'tasks.json');
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
 }

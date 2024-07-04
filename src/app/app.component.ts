@@ -111,4 +111,10 @@ export class DateDialog {
         console.error('Error reading JSON file:', error);
       });
   }
+
+  downloadJson() {
+    this.taskService.getTasks().then((tasks) => {
+      this.dataService.downloadJson(tasks);
+    });
+  }
 }
