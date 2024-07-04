@@ -46,4 +46,10 @@ export class TaskService {
     this.tasksChanged.next(true);
     return response;
   }
+
+  resumeTask(id: number, dueDate: Date): PromiseExtended<number> {
+    const response = this.db.tasks.update(id, { status: 'active', dueDate });
+    this.tasksChanged.next(true);
+    return response;
+  }
 }

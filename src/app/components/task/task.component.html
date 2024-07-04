@@ -30,7 +30,7 @@
           <button mat-icon-button (click)="cancelTask(task.id)">
             <mat-icon>cancel</mat-icon>
           </button>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="openDialog()">
             <mat-icon>play_circle</mat-icon>
           </button>
           <button mat-icon-button (click)="markTaskAsComplete(task.id)">
