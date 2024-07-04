@@ -10,6 +10,7 @@ export interface HeaderButton {
   contentType: 'Icon' | 'Text';
   content: string;
   link?: string;
+  function?: () => void;
 }
 
 @Component({

@@ -2,7 +2,7 @@
     <span *ngIf="includeJumbotron">{{jumbotronText}}</span>
     <span class="spacer"></span>
     <div *ngFor="let button of buttons">
-        <button *ngIf="button.functionalityType === 'Button'">
+        <button *ngIf="button.functionalityType === 'Button'" (click)="button.function !== undefined ? button.function() : null">
             <mat-icon *ngIf="button.contentType === 'Icon'">{{button.content}}</mat-icon>
             <span *ngIf="button.contentType === 'Text'">{{button.content}}</span>
         </button>
