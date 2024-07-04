@@ -40,4 +40,10 @@ export class TaskService {
     this.tasksChanged.next(true);
     return response;
   }
+
+  completeTask(id: number): PromiseExtended<number> {
+    const response = this.db.tasks.update(id, { status: 'completed', dueDate: null});
+    this.tasksChanged.next(true);
+    return response;
+  }
 }

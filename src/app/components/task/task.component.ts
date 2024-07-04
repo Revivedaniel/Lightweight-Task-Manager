@@ -22,8 +22,6 @@ import { Router } from '@angular/router';
   styleUrl: './task.component.scss',
 })
 export class TaskComponent {
-  // TODO: Add a button to edit the task
-  // TODO: Add a button to mark the task as complete
   // TODO: Add a button to resume the task aka add a due date to the task
   @Input() task: TaskResponse = {
     id: 0,
@@ -45,7 +43,9 @@ export class TaskComponent {
     this.router.navigate(['/edit', id]);
   }
 
-  markTaskAsComplete() {}
+  markTaskAsComplete(id: number) {
+    this.taskService.completeTask(id)
+  }
 
   cancelTask(id: number) {
     this.taskService.cancelTask(id)

@@ -2,7 +2,7 @@
   <mat-card-header class="custom-card-header">
     <div class="header-content">
       <mat-card-title>{{task.title}}</mat-card-title>
-      <mat-card-subtitle>{{task.dueDate | date: 'shortDate'}}</mat-card-subtitle>
+      <mat-card-subtitle>{{ task.status === 'completed' ? 'Completed' : task.dueDate | date: 'shortDate'}}</mat-card-subtitle>
     </div>
   </mat-card-header>
   <mat-card-content class="content">
@@ -33,7 +33,7 @@
           <button mat-icon-button>
             <mat-icon>play_circle</mat-icon>
           </button>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="markTaskAsComplete(task.id)">
             <mat-icon>check_circle</mat-icon>
           </button>
         </mat-expansion-panel-header>
