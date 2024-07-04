@@ -1,5 +1,5 @@
 <!-- Tasks -->
-<div *ngFor="let task of orderedTasks()">
+<div *ngFor="let task of orderedTasks()" id="taskList">
      <!-- Tasks without a due date should be placed at the bottom. -->
     <app-task [task]="task"></app-task>
 </div>

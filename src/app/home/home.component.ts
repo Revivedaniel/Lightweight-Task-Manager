@@ -31,10 +31,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   orderedTasks(): TaskResponse[] {
     return this.tasks.sort((a, b) => {
-      if (a.dueDate === null) {
+      console.log(a.dueDate, b.dueDate)
+      if (a.dueDate === null || a.dueDate === undefined) {
         return 1;
       }
-      if (b.dueDate === null) {
+      if (b.dueDate === null || b.dueDate === undefined) {
         return -1;
       }
       return a.dueDate.getTime() - b.dueDate.getTime();

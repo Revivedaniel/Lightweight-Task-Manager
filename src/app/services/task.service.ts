@@ -16,6 +16,12 @@ export class TaskService {
     return this.db.tasks.add(task as TaskResponse);
   };
 
+  addTasks(tasks: TaskModel[]): PromiseExtended<number> {
+    const response = this.db.tasks.bulkAdd(tasks as TaskResponse[]);
+    this.tasksChanged.next(true);
+    return response;
+  }
+
   getTasks(): PromiseExtended<TaskResponse[]> {
     return this.db.tasks.toArray();
   }

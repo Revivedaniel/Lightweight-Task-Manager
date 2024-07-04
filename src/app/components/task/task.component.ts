@@ -42,7 +42,7 @@ export class TaskComponent {
   readonly dialog = inject(MatDialog);
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    const dialogRef = this.dialog.open(DateDialog);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
@@ -88,7 +88,7 @@ export class TaskComponent {
   ],
   providers: [provideNativeDateAdapter()]
 })
-export class DialogContentExampleDialog {
+export class DateDialog {
   readonly dateForm = new FormGroup({
     dueDate: new FormControl<Date | null>(null),
   });
