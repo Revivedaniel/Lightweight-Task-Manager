@@ -1,5 +1,5 @@
-.example-card {
-    max-width: 400px;
+.taskCard {
+    width: 300px;
 }
 
 .example-card-footer {
@@ -44,4 +44,25 @@ mat-expansion-panel mat-action-row {
 
 .actionRow mat-icon {
     cursor: pointer;
+}
+
+@media screen and (min-width: 350px) {
+    .taskCard {
+        width: 350px;
+    }
+    
+}
+
+@media screen and (min-width: 375px) {
+    .taskCard {
+        width: 375px;
+    }
+    
+}
+
+@media screen and (min-width: 400px) {
+    .taskCard {
+        width: 400px;
+    }
+    
 }
