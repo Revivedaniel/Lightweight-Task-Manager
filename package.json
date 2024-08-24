@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --base-href https://revivedaniel.github.io/Lightweight-Task-Manager/",
+    "build-dev": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

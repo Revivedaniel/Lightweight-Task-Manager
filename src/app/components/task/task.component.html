@@ -9,10 +9,10 @@
   </mat-card-content>
   <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-      <mat-expansion-panel-header *ngIf="!panelOpenState()">
-        <mat-panel-title>{{task.description.substring(0, 50) + '...'}}</mat-panel-title>
+      <mat-expansion-panel-header *ngIf="!panelOpenState()" class="taskExpansionHeader">
+        <mat-panel-title class="taskShortDescription">{{task.description.substring(0, 50) + '...'}}</mat-panel-title>
       </mat-expansion-panel-header>
-      <p>{{task.description}}</p>
+      <p class="taskDescription">{{task.description}}</p>
       <mat-action-row class="actionRow">
         <mat-expansion-panel-header>
           <button mat-icon-button (click)="editTask(task.id)">

@@ -1,4 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#taskList {
+    background-color: #fbf7f8;
+}
+
+app-task {
+
+    .taskCard,
+    .taskExpansionHeader,
+    .taskDescription,
+    .actionRow,
+    .mat-expansion-panel,
+    .mat-expansion-panel-body,
+    .taskShortDescription {
+        background-color: #ffffff;
+        color: #18171c;
+        border: 1px solid #efece7;
+    }
+
+    .taskShortDescription,
+    .taskDescription,
+    .actionRow,
+    .mat-expansion-panel-body,
+    .taskExpansionHeader,
+    .mat-expansion-panel {
+        border: none;
+    }
+
+    .mat-expansion-indicator::after {
+        color: #18171c;
+    }
+}

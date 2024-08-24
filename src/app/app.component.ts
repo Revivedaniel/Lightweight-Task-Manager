@@ -14,6 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DataService } from './services/data.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TaskService } from './services/task.service';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -58,7 +59,23 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private swUpdate: SwUpdate) {
+    console.log('AppComponent.constructor');
+    if (this.swUpdate.isEnabled) {
+      //   this.swUpdate.available.subscribe(() => {
+      //
+      //   });
+      console.log('this.swUpdate', this.swUpdate);
+      this.swUpdate.checkForUpdate().then((updatesAvailable) => {
+        console.log('updatesAvailable', updatesAvailable);
+        if (updatesAvailable) {
+          if (confirm('New version available. Load new version?')) {
+            window.location.reload();
+          }
+        }
+      });
+    }
+  }
 
   ngOnInit(): void {
     this.dataService.dialogChanges.subscribe((value) => {
@@ -86,7 +103,10 @@ export class AppComponent implements OnInit {
   providers: [],
 })
 export class DateDialog {
-  constructor(private dataService: DataService, private taskService: TaskService) {}
+  constructor(
+    private dataService: DataService,
+    private taskService: TaskService
+  ) {}
 
   confirmation(): void {
     console.log('Dialog closed');
