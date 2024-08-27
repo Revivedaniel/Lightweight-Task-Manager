@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1723827502067,
+  "timestamp": 1724718694063,
   "index": "https://revivedaniel.github.io/Lightweight-Task-Manager/index.html",
   "assetGroups": [
     {
@@ -15,10 +15,10 @@
         "https://revivedaniel.github.io/Lightweight-Task-Manager/chunk-SU23TTWG.js",
         "https://revivedaniel.github.io/Lightweight-Task-Manager/favicon.ico",
         "https://revivedaniel.github.io/Lightweight-Task-Manager/index.html",
-        "https://revivedaniel.github.io/Lightweight-Task-Manager/main-ADOW7EAW.js",
+        "https://revivedaniel.github.io/Lightweight-Task-Manager/main-ED2WN2WQ.js",
         "https://revivedaniel.github.io/Lightweight-Task-Manager/manifest.webmanifest",
         "https://revivedaniel.github.io/Lightweight-Task-Manager/polyfills-6EAL64PA.js",
-        "https://revivedaniel.github.io/Lightweight-Task-Manager/styles-5S2BUAHW.css"
+        "https://revivedaniel.github.io/Lightweight-Task-Manager/styles-FFJBCOOB.css"
       ],
       "patterns": []
     },
@@ -55,11 +55,11 @@
     "https://revivedaniel.github.io/Lightweight-Task-Manager/chunk-NYAEZXDV.js": "05010ff44f252adb522675585633f8480904daba",
     "https://revivedaniel.github.io/Lightweight-Task-Manager/chunk-SU23TTWG.js": "d63dbe9c1240b2a787feca04693876e867c05464",
     "https://revivedaniel.github.io/Lightweight-Task-Manager/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "https://revivedaniel.github.io/Lightweight-Task-Manager/index.html": "10e85770d352499eaeb2c3af0e585838883ecf91",
-    "https://revivedaniel.github.io/Lightweight-Task-Manager/main-ADOW7EAW.js": "00bb2a62e131a410aee5063bf0fae9d96073aa7e",
+    "https://revivedaniel.github.io/Lightweight-Task-Manager/index.html": "7b249c82b2995af3263c7d111899f82f4b7aa364",
+    "https://revivedaniel.github.io/Lightweight-Task-Manager/main-ED2WN2WQ.js": "2c497f1602e9acfe680535844526f20def8ee3aa",
     "https://revivedaniel.github.io/Lightweight-Task-Manager/manifest.webmanifest": "348005c5853bc0be5771e8d9bf4358a9006cff98",
     "https://revivedaniel.github.io/Lightweight-Task-Manager/polyfills-6EAL64PA.js": "d874147a12a6570d9b44e99935e9de8b7f3cabbc",
-    "https://revivedaniel.github.io/Lightweight-Task-Manager/styles-5S2BUAHW.css": "411702ffdfd89e8f27bd2c0072440f2433fe6a28"
+    "https://revivedaniel.github.io/Lightweight-Task-Manager/styles-FFJBCOOB.css": "8e9f8674c8869e98880434a5d62fcf7798965c3a"
   },
   "navigationUrls": [
     {
