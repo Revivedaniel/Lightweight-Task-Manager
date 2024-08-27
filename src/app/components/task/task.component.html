@@ -10,7 +10,7 @@
   <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
       <mat-expansion-panel-header *ngIf="!panelOpenState()" class="taskExpansionHeader">
-        <mat-panel-title class="taskShortDescription">{{task.description.substring(0, 50) + '...'}}</mat-panel-title>
+        <mat-panel-title class="taskShortDescription">{{task.description.length > 0 ? task.description.substring(0, 50) + '...' : ''}}</mat-panel-title>
       </mat-expansion-panel-header>
       <p class="taskDescription">{{task.description}}</p>
       <mat-action-row class="actionRow">
